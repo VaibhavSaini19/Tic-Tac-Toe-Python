@@ -41,6 +41,7 @@ strikeh={0:[-150,100],1:[-150,0],2:[-150,-100]}
 strikev={0:[-100,150],1:[0,150],2:[100,150]}
 striked={1:[-150,150],2:[150,150]}
 
+
 def won():       # check victory
   global matrix
   mx=matrix
@@ -185,6 +186,10 @@ def get(a,b):
 
   if won():
       pt.exitonclick()
+
+  if j==9:
+    print ('MATCH DRAW')
+    pt.exitonclick()
 
 
 def main():
