@@ -64,9 +64,6 @@ Human = 'O'
 AI = 'X'
 
 def main():
-    #board = ["O",1,"X","X",4,"X",6,"O","O"]
-    #global Human, AI    
-    #print (minimax(board, AI))
     pass
 
 
