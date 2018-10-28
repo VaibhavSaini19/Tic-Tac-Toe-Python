@@ -1,7 +1,6 @@
 # TIC-TAC-TOE
 import turtle as pt
 from Minimax import *
-#pt=turtle.Turtle()
 pt.speed(speed=0)
 
 def cross(pt):     #create cross
