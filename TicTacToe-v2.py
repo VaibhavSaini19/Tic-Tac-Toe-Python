@@ -1,6 +1,9 @@
 # TIC-TAC-TOE
 import turtle as pt
 from Minimax import *
+from random import random, choice
+
+#pt=turtle.Turtle()
 pt.speed(speed=0)
 
 def cross(pt):     #create cross
@@ -34,6 +37,13 @@ def mat(pos,j):                      #update matrix
             matrix[pos] = 'X'
         #flag=1
     #return matrix
+
+def empty_in_mat():
+    global matrix
+    l = [i for i in range(9) if type(matrix[i])==int]
+    print (matrix, l)
+    return l
+    
 
 strikeh={0:[-150,100],1:[-150,0],2:[-150,-100]}
 strikev={0:[-100,150],1:[0,150],2:[100,150]}
@@ -165,7 +175,12 @@ def get(a,b):                     #get position of box
     mat(pos, j)
     mark(pos)    
 
-    pos = minimax(matrix, AI)['index']
+    global alpha
+    r = random()
+    if r > alpha:
+        pos = choice(empty_in_mat())
+    else:
+        pos = minimax(matrix, AI)['index']
     print ("AI: ", pos)
     mat(pos, j)
     mark(pos)
@@ -207,8 +222,19 @@ def mark(pos):
 Human = 'O'
 AI = 'X'
 player = Human
+alpha = 1
 
 def main():
+    global alpha
+    ch = int(input("Choose difficulty level:\n\t1.Easy\t2.Intermediate\t3.Hard\t4.Impossible\n\t-->"))
+    if ch == 1:
+        alpha = 0.25
+    elif ch == 2:
+        alpha = 0.5
+    elif ch == 3:
+        alpha = 0.75
+    else:
+        alpha = 1
     pt.onscreenclick(get)
     pt.mainloop()
   
